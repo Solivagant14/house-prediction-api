@@ -28,7 +28,7 @@ def get_name(name: str):
 def predict(data:HouseDetail):
     data=data.model_dump()
     output = get_prediction(data['HouseStyle'],data['OverallQual'],data['GrLivArea'],data['GarageArea'],data['Neighbourhood'])
-    return output
+    return {'price':f"{output}"}
 
 if __name__=='__main__':
     uvicorn.run(app,host='127.0,0,1',port=8000)
